@@ -10,6 +10,21 @@
 
 //Implementing Event Delegation to above functionalities
 
+const randomInterger = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
+
+const randomColor = () => {
+  const r = randomInterger(0, 255);
+  const g = randomInterger(0, 255);
+  const b = randomInterger(0, 255);
+  return `rgb(${r}, ${g}, ${b})`;
+};
+
+document.getElementsByTagName("nav")[0].addEventListener("click", function () {
+  this.style.backgroundColor = randomColor();
+  console.log(this);
+});
+
 document
   .querySelector(".list-container")
   .addEventListener("click", function (event) {
@@ -23,5 +38,6 @@ document
       const mainId = id.substring(1);
       //   console.log(mainId);
       document.getElementById(mainId).scrollIntoView({ behavior: "smooth" });
+      // event.stopImmediatePropagation();
     }
   });
