@@ -1,0 +1,4 @@
+
+function handleClick() {
+    return true;
+}
